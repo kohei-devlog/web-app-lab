@@ -17,7 +17,7 @@ export function DeleteAccountPage() {
   const checkUser = async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      
+
       if (!user) {
         navigate('/login');
         return;
@@ -39,7 +39,7 @@ export function DeleteAccountPage() {
       // 注意: Supabase Auth APIでは、クライアント側から直接ユーザーを削除できません
       // この機能を実装するには、サーバー側のエンドポイントを作成する必要があります
       // ここでは、ログアウトのみ実行します
-      
+
       await supabase.auth.signOut();
       setIsDeleted(true);
     } catch (error: any) {
@@ -55,17 +55,17 @@ export function DeleteAccountPage() {
 
   if (isDeleted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-slate-100 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
         <div className="max-w-md w-full">
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <div className="space-y-6 text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <CheckCircle className="w-10 h-10 text-green-600" />
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full mx-auto flex items-center justify-center">
+                <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
               </div>
 
               <div className="space-y-2">
-                <h1 className="text-2xl font-bold text-gray-900">削除完了</h1>
-                <p className="text-gray-600">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">削除完了</h1>
+                <p className="text-gray-600 dark:text-gray-300">
                   ログアウトしました
                 </p>
               </div>
@@ -86,12 +86,12 @@ export function DeleteAccountPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <Link 
-            to="/app" 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 transition-colors"
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+          <Link
+            to="/app"
+            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>ダッシュボードに戻る</span>
@@ -102,32 +102,32 @@ export function DeleteAccountPage() {
               <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center">
                 <AlertTriangle className="w-8 h-8 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900">アカウント削除</h1>
-              <p className="text-gray-600">この操作は取り消すことができません</p>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">アカウント削除</h1>
+              <p className="text-gray-600 dark:text-gray-300">この操作は取り消すことができません</p>
             </div>
 
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                <p className="text-sm text-red-800">{error}</p>
+              <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                <p className="text-sm text-red-800 dark:text-red-300">{error}</p>
               </div>
             )}
 
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-              <h3 className="font-medium text-red-900 mb-2">削除されるアカウント</h3>
-              <p className="text-red-700">{email}</p>
+            <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl p-4">
+              <h3 className="font-medium text-red-900 dark:text-red-300 mb-2">削除されるアカウント</h3>
+              <p className="text-red-700 dark:text-red-400">{email}</p>
             </div>
 
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-              <h3 className="font-medium text-amber-900 mb-2">注意事項</h3>
-              <ul className="text-sm text-amber-800 space-y-1">
+            <div className="bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+              <h3 className="font-medium text-amber-900 dark:text-amber-300 mb-2">注意事項</h3>
+              <ul className="text-sm text-amber-800 dark:text-amber-400 space-y-1">
                 <li>• すべてのデータが削除されます</li>
                 <li>• この操作は元に戻せません</li>
                 <li>• 削除後は同じアカウントで再登録できません</li>
               </ul>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-              <p className="text-sm text-blue-800">
+            <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+              <p className="text-sm text-blue-800 dark:text-blue-300">
                 注意: 現在の実装では、セキュリティ上の理由からログアウトのみ実行されます。
                 完全なアカウント削除には、サーバー側の実装が必要です。
               </p>

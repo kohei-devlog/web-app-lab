@@ -27,24 +27,24 @@ export function LogoutPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="text-blue-600">ログアウト中...</div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
+        <div className="text-blue-600 dark:text-blue-400">ログアウト中...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
           <div className="space-y-6 text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto flex items-center justify-center">
-              <CheckCircle className="w-10 h-10 text-blue-600" />
+            <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mx-auto flex items-center justify-center">
+              <CheckCircle className="w-10 h-10 text-blue-600 dark:text-blue-400" />
             </div>
 
             <div className="space-y-2">
-              <h1 className="text-2xl font-bold text-gray-900">ログアウト完了</h1>
-              <p className="text-gray-600">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">ログアウト完了</h1>
+              <p className="text-gray-600 dark:text-gray-300">
                 正常にログアウトしました
               </p>
             </div>
