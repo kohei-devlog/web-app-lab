@@ -120,9 +120,12 @@
 }
 
 @layer base {
-  * {
-    @apply border border-gray-300 outline outline-2 outline-gray-300/50;
-
+  *,
+  *::before,
+  *::after {
+    border-width: 0;
+    border-style: solid;
+    outline: none;
   }
 
   body {
