@@ -120,11 +120,6 @@
 }
 
 @layer base {
-  * {
-    @apply border border-gray-300 outline outline-2 outline-gray-300/50;
-
-  }
-
   body {
     @apply bg-background text-foreground;
   }
